@@ -1,0 +1,12 @@
+{
+  "description": "Hello world shell style",
+  "name": "Hello Gnome Shell",
+  "shell-version": [
+    "3.36",
+    "40",
+    "41"
+  ],
+  "url": "",
+  "uuid": "hello-world-gnome-shell@sombriks",
+  "version": 0.1
+}
