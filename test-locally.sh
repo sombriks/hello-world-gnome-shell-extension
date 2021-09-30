@@ -6,7 +6,7 @@ export _EXTENSION=~/.local/share/gnome-shell/extensions/$_EXTUUID
 
 rm -rf $_EXTENSION
 mkdir $_EXTENSION
-cp extension.js metadata.json $_EXTENSION
+cp extension.js metadata.json picture_09.jpg $_EXTENSION
 
 # now type alt+F2 and 'r' to reload gnome shell # not working
 # gnome-shell --replace # not working
