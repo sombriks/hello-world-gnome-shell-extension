@@ -8,4 +8,6 @@ rm -rf $_EXTENSION
 mkdir $_EXTENSION
 cp extension.js metadata.json $_EXTENSION
 
-# now type alt+F2 and 'r' to reload gnome shell
+# now type alt+F2 and 'r' to reload gnome shell # not working
+# gnome-shell --replace # not working
+# now restart session, replace or reload does not work on wayland
