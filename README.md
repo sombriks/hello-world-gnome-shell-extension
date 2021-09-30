@@ -7,3 +7,7 @@ simple hello world for gnome shell extensions
 - install it, there is a script to help that
 - restart gnome-shell
 - see log messages with `journalctl -e | grep gnome-shell`
+
+after restart your extension should be visible either in 
+<https://extensions.gnome.org/local/> or gnome shell extensions app available in
+your distro repo.
