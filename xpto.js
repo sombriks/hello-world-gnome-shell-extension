@@ -29,6 +29,6 @@ function changeWallpaper() {
     const filenames = ByteArray.toString(out).split("\n");
     const idx = Math.round(Math.random() * filenames.length);
     const cmd = "gsettings set org.gnome.desktop.background picture-uri";
-    exec(`${cmd} ${path}/${filenames[idx]}`);
+    exec(`${cmd} ${path}/${filenames[idx].replaceAll(" ","\\ ")}`);
   });
 }
