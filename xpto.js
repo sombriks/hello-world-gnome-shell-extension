@@ -10,6 +10,7 @@ function info(msg) {
 }
 
 function exec(cmd, success, error) {
+  info(cmd);
   const [res, out, err, status] = GLib.spawn_command_line_sync(cmd);
   if (res) {
     if (success) success(out);
