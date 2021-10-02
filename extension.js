@@ -1,26 +1,30 @@
 "use strict";
 
-const Main = imports.ui.main;
-const Config = imports.misc.config;
-const ExtensionUtils = imports.misc.extensionUtils;
-const Me = ExtensionUtils.getCurrentExtension();
 const St = imports.gi.St;
 const Gio = imports.gi.Gio;
-const GLib = imports.gi.GLib;
+const GObject = imports.gi.GObject;
+
 const PanelMenu = imports.ui.panelMenu;
 const PopupMenu = imports.ui.popupMenu;
-const GObject = imports.gi.GObject;
+const Main = imports.ui.main;
+
+// this is how to import local modules
+const ExtensionUtils = imports.misc.extensionUtils;
+const Me = ExtensionUtils.getCurrentExtension();
+const { info, changeWallpaper } = Me.imports.xpto;
 
 class _ShellHelloWorld extends PanelMenu.Button {
   _init() {
     super._init(0.0, "Hello World");
     const hbox = new St.BoxLayout();
-    const gicon = Gio.icon_new_for_string(Me.path + "/picture_09.jpg");
-    const icon = new St.Icon({ gicon: gicon, icon_size: "24" });
+    const icon = new St.Icon({
+      icon_name: "preferences-desktop-wallpaper-symbolic",
+    });
 
     hbox.add_child(icon);
     this.add_child(hbox);
-    log("TEST done that, been there");
+    info("done that, been there");
+    this.connect("button_press_event", changeWallpaper);
   }
 }
 
@@ -34,12 +38,12 @@ let ShellHelloWorld = GObject.registerClass(
 let shellHelloWorld;
 
 function enable() {
-  log("TEST hello world -- enable!");
+  info("hello world -- enable!");
   shellHelloWorld = new ShellHelloWorld();
   Main.panel.addToStatusArea("shel-hello-world", shellHelloWorld);
 }
 
 function disable() {
-  log("TEST hello world -- disable!");
+  info("hello world -- disable!");
   shellHelloWorld.destroy();
 }
